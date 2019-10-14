@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .clear::before .clear::after{
+        content: "";
+        display: table;
+    }
+    .clear::after{
+        clear: both;
+    }
+    a{
+        text-decoration: none;
+        color: #000;
+    }
+    li{
+        list-style: none;
+    }
+    body{
+        background-color: #eef0ed;
+    }
+    .top{
+        height: 80px;
+        background:url(新建文件夹/images/太空2.jpg) no-repeat center center;
+        background-size:100%;
+        text-align: center;
+        line-height: 60px;
+        overflow: hidden;
+    }
+    nav{
+        width: 1200px;
+        height: 60px;
+        margin: 10px auto;
+
+    }
+
+    .logo{
+         float: left;
+    }
+    .logo img{
+        height: 60px;
+    }
+    
+    nav h1{
+        float: left;
+        text-align: center;
+        margin-left: 300px;
+        color: #fff;
+        font-weight: normal;
+    }
+    .personal{
+            height: 60px;
+            line-height: 60px;
+            float: right; 
+    }
+    .personal a{
+        display: inline-block;
+        height: 36px;
+        margin: 20px 0px;
+        line-height: 36px;
+        padding:5px 10px;
+        border-right: 1px solid white;
+        color: #fff;
+    }
+    .personal a:hover{
+        background-color:rgba(248, 246, 238, 0.4);
+    }
+    .personal img{
+        height: 28px;
+        background-color: #fff;
+        border-radius: 100%;
+        margin: -10px 10px;
+        padding: 5px 5px;
+    }
+
+    .main{
+        
+        margin: 0 auto;
+        text-align: center;
+        line-height: 400px;
+        margin-bottom: 10px;
+        overflow:hidden;/*由于父级盒子未给高度 必须清除浮动*/
+    }
+        .main .left /*一定要加空格 不然不显示*/ {
+            width: 18%;
+            height: 600px;
+            background: url(新建文件夹/images/星空1.jpg) no-repeat center center;
+            background-size: cover;
+            float: left;
+        }
+
+    .main .left li{
+            color: #fff;
+            font-size: 16px;
+            padding:0 20px;
+            display: block; /*a是行内元素 需要给高*/
+            height: 80px;  
+            line-height: 80px;
+            cursor: pointer;        
+    }
+
+
+    .main .left .change{
+        background-color: rgba(248, 246, 238, 0.4);
+    }
+    .main .left li:hover{
+        background-color: rgba(248, 246, 238, 0.4);
+    }
+    
+
+    .main .right{
+        width: 82%;
+        height: 600px;
+        background-color:#eef0ed;
+        /* margin-left: 8px;此时会撑开盒子 */
+        float: left;
+        /* 留中间一个小缝隙 */
+    }
+    .main .right li{
+        height: 30px;
+    }
+   
+    .main .right .courseMsg{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+       
+    }
+    .main .right .personMsg{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        display: none;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="top">
+        <nav>
+        <!-- logo -->
+        <div class="logo">
+            <img src="新建文件夹/logo/湖北大学logo.png" alt="">
+        </div>
+        <h1>教务管理系统</h1>
+
+        <div class="personal">
+            <a href="#"><img src="icon/课程管理.png" >最新课程</a>
+            <a href="#"><img src="icon/校园专区.png"  >校园新闻 </a>
+            <a href="#"><img src="icon/消息通知1.png" >我的消息 </a>
+        </div>
+        </nav>
+    </div>
+
+
+    <div class="main">
+        <div class="left">
+            <ul>
+                <li class="change" >课程信息</li>
+                <li >个人信息</li>
+                
+            </ul>
+        </div>
+        <div class="right">
+              
+              <div class="courseMsg">
+                <ul>
+                    <li>查询课程</li>
+                    <li>已选课程</li>
+                    <li>已退课程</li>
+                    <li>成绩查询</li>
+                    <li>教师评价</li>
+                </ul>
+            </div>
+            <div class="personMsg">
+                <ul>
+                    <li>个人资料</li>
+                    <li>修改密码</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    var lis =document.querySelector('.left').querySelectorAll('li');
+    var courseMsg =document.querySelector('.right').querySelector('.courseMsg');
+    var personMsg=document.querySelector('.right').querySelector('.personMsg');
+
+    lis[0].onclick =function(){
+             courseMsg.style.display = 'block';
+             this.className='change';
+             this.nextElementSibling.className='';
+             personMsg.style.display = 'none';
+    } 
+         lis[1].onclick =function(){
+             courseMsg.style.display = 'none';
+             this.className='change';
+             this.previousElementSibling.className='';
+             personMsg.style.display = 'block';
+         }  
+            
+            
+    
+    
+  
+   
+    
+    </script>
+</body>
+</html>
